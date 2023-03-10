@@ -28,11 +28,11 @@ public class PokemonClient extends Thread {
 		}
 	}
 	
-	public void send (String addition) {
+	public void send (PokemonDTO pokemon) {
 		try {
 			client = new Socket(ip, port);
 			out = new ObjectOutputStream(client.getOutputStream());
-			out.writeObject(addition);
+			out.writeObject(pokemon);
 			client.close();
 			out.close();
 		} catch (Exception e) {
@@ -40,17 +40,13 @@ public class PokemonClient extends Thread {
 		}
 	}
 	
-	public String read (String toread) {
-		String line = "";
+	public PokemonDTO read () {
+		PokemonDTO line = null;
 		try {
-			mailbox = new Socket(ip, port+1);
-			out = new ObjectOutputStream(mailbox.getOutputStream());
-			out.writeObject(toread);
-			
 			server = new ServerSocket(port + 100);
 			in = new ObjectInputStream(mailbox.getInputStream());
 			client = server.accept();
-			line = (String) in.readObject();
+			line = (PokemonDTO) in.readObject();
 			
 			mailbox.close();
 			client.close();

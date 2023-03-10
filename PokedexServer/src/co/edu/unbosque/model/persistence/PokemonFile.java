@@ -19,44 +19,40 @@ public class PokemonFile {
 	
 	public PokemonFile() {
 		// TODO Auto-generated constructor stub
-		this.pokefile = new File ("src/pokedex.dat");
-		if (!this.pokefile.exists()) {
-			try {
-				pokefile.createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		this.pokefile = new File("src/pokemons.txt");
 	}
 	
-	public void write (final ArrayList<PokemonDTO> lst) {
+	public void write(final ArrayList<PokemonDTO> pokelist) {
 		try {
 			this.out = new ObjectOutputStream(new FileOutputStream(this.pokefile));
-			out.writeObject(lst);
+			out.writeObject(pokelist);
 			out.close();
-		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
-		} catch (IOException ex2) {
-			ex2.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
 	public ArrayList<PokemonDTO> read() {
-		ArrayList<PokemonDTO> output = new ArrayList<PokemonDTO>();
-		if (this.pokefile.length() != 0L) {
+		ArrayList<PokemonDTO> pokelist = new ArrayList<>();
+		if (pokefile.length() != 0L) {
 			try {
 				in = new ObjectInputStream(new FileInputStream(pokefile));
-				output = (ArrayList<PokemonDTO>) in.readObject();
+				pokelist = (ArrayList<PokemonDTO>) in.readObject();
 			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			} catch (ClassNotFoundException e3) {
-				e3.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
 			}
-		}
-		return output;
+			
+		} return pokelist;
 	}
 
 }

@@ -29,7 +29,7 @@ public class PokeServer extends Thread {
 			in = null;
 			this.port = port;
 			pokefile = new PokemonFile();
-			pokedao = new PokemonDAO();
+			pokedao = new PokemonDAO(pokefile);
 			ip = "localhost";
 			
 		} catch (Exception e) {
