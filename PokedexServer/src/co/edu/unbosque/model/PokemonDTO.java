@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * <h1>PokemonDTO</h1>
+ * The PokemonDTO class is the Data Transfer Object that includes all the attributes of each one of the Pokemons, alongside its constructor with the required parameters to create a Pokemon, and getter methods to access the information of each Pokemon.
+ * @author juand
+ *
+ */
+
 public class PokemonDTO implements Serializable {
 	
 	/**
@@ -17,10 +24,22 @@ public class PokemonDTO implements Serializable {
 	private String weight;
 	private String [] attacks;
 	private int level;
-	private boolean tomado;
+	private boolean taken;
+	
+	/**
+	 * Constructor method for the PokemonDTO class. Includes all the parameters to create the object.
+	 * @param name Name of the Pokemon
+	 * @param mote Mote of the Pokemon given by the Trainer
+	 * @param height Height of the Pokemon
+	 * @param category Pokemon category
+	 * @param weight Pokemon weight
+	 * @param attacks Array including all the attacks that the Pokemon is able to perform. This array <strong>must</strong> have a maximum size of four spaces.
+	 * @param level Pokemon level
+	 * @param taken Determines if the Pokemon is already taken by a trainer, or not
+	 */
 	
 	public PokemonDTO(String name, String mote, int height, String category, String weight, String[] attacks,
-			int level, boolean tomado) {
+			int level, boolean taken) {
 		this.name = name;
 		this.mote = mote;
 		this.height = height;
@@ -28,7 +47,7 @@ public class PokemonDTO implements Serializable {
 		this.weight = weight;
 		this.attacks = attacks;
 		this.level = level;
-		this.tomado= tomado;
+		this.taken= taken;
 	}
 
 	public String getName() {
@@ -89,18 +108,18 @@ public class PokemonDTO implements Serializable {
 
 	
 	public boolean getTomado() {
-		return tomado;
+		return taken;
 	}
 
 	public void setTomado(boolean b) {
-		this.tomado = b;
+		this.taken = b;
 	}
 
 	@Override
 	public String toString() {
 		return "PokemonDTO [name=" + name + ", mote=" + mote + ", height=" + height + ", category=" + category
 				+ ", weight=" + weight + ", attacks=" + Arrays.toString(attacks) + ", level=" + level + ", tomado="
-				+ tomado + "]";
+				+ taken + "]";
 	}
 
 	

@@ -1,5 +1,12 @@
 package co.edu.unbosque.model;
 
+/**
+ * Box #1 that can contain all the Pokemons.
+ * 
+ * @author juand
+ *
+ */
+
 public class Caja1 extends PokemonDTO {
 
 	public Caja1(String name, String mote, int height, String category, String weight, String[] attacks, int level, boolean tomado) {

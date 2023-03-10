@@ -11,16 +11,31 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.PokemonDTO;
 
+/**
+ * The PokemonFile class contains all the methods relevant to file handling, including creation, deletion and re-writing of the file.
+ * @author juand
+ *
+ */
+
 public class PokemonFile {
 	
 	private ObjectInputStream in;
 	private ObjectOutputStream out;
 	private File pokefile;
 	
+	/**
+	 * Constructor that creates the File object representing the file in disk.
+	 */
+	
 	public PokemonFile() {
 		// TODO Auto-generated constructor stub
 		this.pokefile = new File("src/pokemons.txt");
 	}
+	
+	/**
+	 * Writes an ArrayList of Pokemons inside the file
+	 * @param pokelist list of pokemons to be written.
+	 */
 	
 	public void write(final ArrayList<PokemonDTO> pokelist) {
 		try {
@@ -35,6 +50,11 @@ public class PokemonFile {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Reads objects from the file.
+	 * @return ArrayList with Pokemons that was written inside the file.
+	 */
 	
 	public ArrayList<PokemonDTO> read() {
 		ArrayList<PokemonDTO> pokelist = new ArrayList<>();
