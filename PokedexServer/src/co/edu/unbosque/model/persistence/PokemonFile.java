@@ -55,4 +55,29 @@ public class PokemonFile {
 		} return pokelist;
 	}
 
+	public ObjectInputStream getIn() {
+		return in;
+	}
+
+	public void setIn(ObjectInputStream in) {
+		this.in = in;
+	}
+
+	public ObjectOutputStream getOut() {
+		return out;
+	}
+
+	public void setOut(ObjectOutputStream out) {
+		this.out = out;
+	}
+
+	public File getPokefile() {
+		return pokefile;
+	}
+
+	public void setPokefile(File pokefile) {
+		this.pokefile = pokefile;
+	}
+	
+
 }
