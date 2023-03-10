@@ -17,9 +17,10 @@ public class PokemonDTO implements Serializable {
 	private String weight;
 	private String [] attacks;
 	private int level;
+	private boolean tomado;
 	
 	public PokemonDTO(String name, String mote, int height, String category, String weight, String[] attacks,
-			int level) {
+			int level, boolean tomado) {
 		this.name = name;
 		this.mote = mote;
 		this.height = height;
@@ -27,6 +28,7 @@ public class PokemonDTO implements Serializable {
 		this.weight = weight;
 		this.attacks = attacks;
 		this.level = level;
+		this.tomado= tomado;
 	}
 
 	public String getName() {
@@ -85,11 +87,23 @@ public class PokemonDTO implements Serializable {
 		this.level = level;
 	}
 
+	
+	public boolean getTomado() {
+		return tomado;
+	}
+
+	public void setTomado(boolean b) {
+		this.tomado = b;
+	}
+
 	@Override
 	public String toString() {
 		return "PokemonDTO [name=" + name + ", mote=" + mote + ", height=" + height + ", category=" + category
-				+ ", weight=" + weight + ", attacks=" + Arrays.toString(attacks) + ", level=" + level + "]";
+				+ ", weight=" + weight + ", attacks=" + Arrays.toString(attacks) + ", level=" + level + ", tomado="
+				+ tomado + "]";
 	}
+
+	
 	
 	 
 	
